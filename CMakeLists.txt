@@ -57,7 +57,20 @@ option(AVIF_ENABLE_EXPERIMENTAL_SAMPLE_TRANSFORM "Enable experimental sample tra
 
 set(AVIF_PKG_CONFIG_EXTRA_LIBS_PRIVATE "")
 set(AVIF_PKG_CONFIG_EXTRA_REQUIRES_PRIVATE "")
+# 设置编译选项
+option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
+option(AVIF_CODEC_AOM "Use local AOM codec" LOCAL)
+option(AVIF_LIBYUV "Use local libyuv" LOCAL)
+option(AVIF_CODEC_SVT "Use local SVT codec" LOCAL)
+option(AVIF_LIBSHARPYUV "Use local libsharpyuv" LOCAL)
+option(AVIF_JPEG "Use local JPEG library" LOCAL)
+option(AVIF_ZLIBPNG "Use local ZLIBPNG library" LOCAL)
+option(AVIF_BUILD_APPS "Build apps" ON)
 
+# 设置编译目录
+set(CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build)
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR})
+set(LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR})
 function(set_local_or_system_option VAR DEFAULT TEXT)
     # Deal with the older way of setting options.
     if(DEFINED AVIF_LOCAL_${VAR})
