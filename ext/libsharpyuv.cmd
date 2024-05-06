@@ -9,7 +9,7 @@
 : #     "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Auxiliary\Build\vcvars64.bat"
 
 : # libsharpyuv is part of the libwebp repo.
-git clone -b v1.4.0 --depth 1 https://chromium.googlesource.com/webm/libwebp
+@REM git clone -b v1.4.0 --depth 1 https://chromium.googlesource.com/webm/libwebp
 
 cd libwebp
 mkdir build
